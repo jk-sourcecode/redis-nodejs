@@ -1,0 +1,16 @@
+version: '2.2'
+services:
+  node-redis:
+    build: .
+    ports: 
+      - "5050:5050"
+    container_name: node-redis
+    networks:
+      - redis
+  redis:
+    image: redis
+    networks:
+    - redis
+networks:
+  redis:
+    driver: bridge
